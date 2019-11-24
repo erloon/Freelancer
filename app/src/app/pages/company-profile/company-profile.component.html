@@ -1,3 +1,126 @@
 <div>
-    <h4 class="mb-4 text-muted">Profil firmy</h4>
+  <h4 class="mb-4 text-muted">Profil freelancera</h4>
+
+  <div class="row">
+    <div class="col-md-12 mb-4 ">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Dane prowadzonej firmy</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="company-name">Nazwa</label>
+              <input type="text" class="form-control  rounded-0" id="company-name" placeholder="Nazwa firmy">
+            </div>
+            <div class="form-group">
+                <label for="company-owner">Właściciel</label>
+                <input type="text" class="form-control  rounded-0" id="company-owner" placeholder="Włąściel firmy">
+              </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="company-address">Adres</label>
+                  <input type="text" class="form-control rounded-0" id="company-address" placeholder="Adres">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>Logo</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="company-logo">
+                    <label class="custom-file-label rounded-0" for="company-logo">Wgraj logo firmy</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="company-nip">NIP</label>
+                    <input type="text" class="form-control rounded-0" id="company-nip" placeholder="NIP">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="company-regon">REGON</label>
+                  <input type="text" class="form-control rounded-0" id="company-regon" placeholder="REGON">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Zapisz</button>
+              <button type="button" class="btn btn-outline-lightning rounded-0 mb-2">Usuń zmiany</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 mb-4 ">
+        <div class="card border-0 rounded-0">
+          <div class="card-title mb-1 p-3">
+            <h5>Ustawienia podatkowe firmy</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="company-taxation-form">Forma opodatkowania</label>
+                        <select class="form-control rounded-0" id="company-taxation-form">
+                            <option>Podatek liniowy</option>
+                            <option>Skala podatkowa</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="company-zus-reduction">Ulga w ZUS</label>
+                        <select class="form-control rounded-0" id="company-zus-reduction">
+                            <option>Brak</option>
+                            <option>Preferencyjna składka ZUS</option>
+                            <option>Ulga na start</option>
+                          </select>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="company-accident-percentage">Składka wypadkowa (w %)</label>
+                          <input type="number" class="form-control  rounded-0" step="0.01" min="0" max="100" id="company-accident-percentage" placeholder="1,67%">
+                        </div>
+                  </div>
+
+                </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                          <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="company-sickness-contribution" checked>
+                            <label class="custom-control-label" for="company-sickness-contribution">Opłacasz składke chorobową?</label>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                          <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="company-full-time-job" checked>
+                            <label class="custom-control-label" for="company-full-time-job">Pracujesz na etacie?</label>
+                          </div>
+                        </div>
+                    </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Zapisz</button>
+                <button type="button" class="btn btn-outline-lightning rounded-0 mb-2">Usuń zmiany</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
