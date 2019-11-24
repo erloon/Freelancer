@@ -16,6 +16,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FinancialManagerComponent } from './pages/financial-manager/financial-manager.component';
 import { BalanceComponent } from './pages/balance/balance.component';
 import { CompanyProfileComponent } from './pages/company-profile/company-profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CompanyProfileComponent } from './pages/company-profile/company-profile
     DashboardComponent,
     FinancialManagerComponent,
     BalanceComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
