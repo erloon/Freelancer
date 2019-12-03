@@ -1,9 +1,0 @@
-D:\Freelancer\Freelancer\FR.Identity\bin\Debug\netcoreapp3.0\appsettings.Development.json
-D:\Freelancer\Freelancer\FR.Identity\bin\Debug\netcoreapp3.0\appsettings.json
-D:\Freelancer\Freelancer\FR.Identity\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\FR.Identity.csprojAssemblyReference.cache
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\staticwebassets\FR.Identity.StaticWebAssets.Manifest.cache
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\staticwebassets\FR.Identity.StaticWebAssets.xml
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\FR.Identity.AssemblyInfoInputs.cache
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\FR.Identity.AssemblyInfo.cs
-D:\Freelancer\Freelancer\FR.Identity\obj\Debug\netcoreapp3.0\FR.Identity.RazorTargetAssemblyInfo.cache
