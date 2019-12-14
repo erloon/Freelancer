@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FR.Identity.API.Infrastructure;
 using FR.Identity.API.Model;
+using IdentityServer4.Events;
+using IdentityServer4.Extensions;
+using IdentityServer4.Services;
+using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -16,11 +21,27 @@ namespace FR.Identity.API.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<AppUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IIdentityServerInteractionService _interaction;
+        private readonly IClientStore _clientStore;
+        private readonly IAuthenticationSchemeProvider _schemeProvider;
+        private readonly IEventService _events;
 
-        public AccountController(UserManager<AppUser> userManager)
+        public AccountController(
+            UserManager<ApplicationUser> userManager, 
+            SignInManager<ApplicationUser> signInManager,
+            IIdentityServerInteractionService interaction,
+            IClientStore clientStore,
+            IAuthenticationSchemeProvider schemeProvider,
+            IEventService events)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+            _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
+            _interaction = interaction ?? throw new ArgumentNullException(nameof(interaction));
+            _clientStore = clientStore ?? throw new ArgumentNullException(nameof(clientStore));
+            _schemeProvider = schemeProvider ?? throw new ArgumentNullException(nameof(schemeProvider));
+            _events = events ?? throw new ArgumentNullException(nameof(events));
         }
         [HttpPost]
         public async Task<Result> Register([FromBody]Register registerUser)
@@ -40,8 +61,9 @@ namespace FR.Identity.API.Controllers
                     };
                 }
  
-                user = new AppUser
+                user = new ApplicationUser
                 {
+                    UserName = registerUser.Email,
                     Id = Guid.NewGuid().ToString(),
                     Email = registerUser.Email,
                     CompanyName = registerUser.CompanyName
@@ -51,11 +73,16 @@ namespace FR.Identity.API.Controllers
  
                 if (result.Succeeded)
                 {
+                     
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("userName", user.UserName));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("name", user.Name));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("email", user.Email));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", Roles.Consumer));
+
                     return new Result
                     {
                         Status = Status.Success,
-                        Message = "User Created",
-                        Data = user
+                        Message = "User Created"
                     };
                 }
                 else
@@ -83,33 +110,21 @@ namespace FR.Identity.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(model.Email);
- 
-                if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberLogin, lockoutOnFailure: true);
+                var user = await _userManager.FindByNameAsync(model.Email);
+                if (result.Succeeded)
                 {
-                    var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
-                    identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
-                    identity.AddClaim(new Claim("CompanyName", user.CompanyName));
- 
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
- 
-                    return new Result
-                    {
-                        Status = Status.Success,
-                        Message = "Successful login",
-                        Data = model
-                    };
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
+
                 }
- 
-                return new Result
+                return  new Result()
                 {
-                    Status = Status.Error,
-                    Message = "Invalid data",
-                    Data = "Invalid Username or Password"
+                    Status = Status.Success,
+                    Message = "Successful login",
+                    Data = user
                 };
             }
- 
+
             var errors = ModelState.Keys.Select(e => e);
             return new Result
             {
@@ -133,7 +148,12 @@ namespace FR.Identity.API.Controllers
         [HttpPost]
         public async Task SignOut()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            if (User?.Identity.IsAuthenticated == true)
+            {
+                await _signInManager.SignOutAsync();
+
+                await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
+            }
         }
     }
 }

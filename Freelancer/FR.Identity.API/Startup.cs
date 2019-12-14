@@ -1,26 +1,29 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using FR.Identity.API.Infrastructure;
+using FR.Identity.API.Infrastructure.Database;
 using FR.Identity.API.Model;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace FR.Identity.API
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,25 +31,65 @@ namespace FR.Identity.API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityCore<AppUser>(o =>
-            {
 
+            var connectionString = Configuration.GetConnectionString("FreelancerIdentity");
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
+            services.AddDbContext<ApplicationDbContext>(o =>
+            {
+                o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"));
             });
-            services.AddScoped<IUserStore<AppUser>, AppUserStore>();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            var builder = services.AddIdentityServer(options =>
+            {
+                options.IssuerUri = "null";
+                options.Authentication.CookieLifetime = TimeSpan.FromHours(8);
+
+            }).AddOperationalStore(options =>
                 {
-                    options.Events.OnRedirectToAccessDenied = ReplaceRedirector(HttpStatusCode.Forbidden, options.Events.OnRedirectToAccessDenied);
-                    options.Events.OnRedirectToLogin = ReplaceRedirector(HttpStatusCode.Unauthorized, options.Events.OnRedirectToLogin);
-                });
+                    options.ConfigureDbContext = o =>
+                    {
+                        o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"), so =>
+                            {
+                                so.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name);
+                            });
+
+                    };
+
+                    // this enables automatic token cleanup. this is optional.
+                    options.EnableTokenCleanup = true;
+                })
+                .AddInMemoryIdentityResources(IdentityServerConfiguration.GetIdentityResources())
+                .AddInMemoryApiResources(IdentityServerConfiguration.GetApis())
+                .AddInMemoryClients(IdentityServerConfiguration.GetClients())
+                .AddAspNetIdentity<ApplicationUser>();
+
+
+
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT").Contains("Development"))
+            {
+                builder.AddDeveloperSigningCredential();
+            }
+            else
+            {
+                throw new Exception("need to configure key material");
+            }
+
+            services.AddTransient<IProfileService, IdentityClaimsProfileService>();
+
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()));
 
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,12 +97,11 @@ namespace FR.Identity.API
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
 
-            app.UseAuthorization();
-            app.UseAuthentication();
+            app.UseCors("AllowAll");
+            app.UseHttpsRedirection();
+            app.UseIdentityServer();
 
             app.UseEndpoints(endpoints =>
             {
@@ -67,16 +109,48 @@ namespace FR.Identity.API
             });
         }
 
-        static Func<RedirectContext<CookieAuthenticationOptions>, Task> ReplaceRedirector(HttpStatusCode statusCode, 
-            Func<RedirectContext<CookieAuthenticationOptions>, Task> existingRedirector) =>
-            context =>
-            {
-                if (context.Request.Path.StartsWithSegments("/api"))
-                {
-                    context.Response.StatusCode = (int)statusCode;
-                    return Task.CompletedTask;
-                }
-                return existingRedirector(context);
-            };
+        //static Func<RedirectContext<CookieAuthenticationOptions>, Task> ReplaceRedirector(HttpStatusCode statusCode,
+        //    Func<RedirectContext<CookieAuthenticationOptions>, Task> existingRedirector) =>
+        //    context =>
+        //    {
+        //        if (context.Request.Path.StartsWithSegments("/api"))
+        //        {
+        //            context.Response.StatusCode = (int)statusCode;
+        //            return Task.CompletedTask;
+        //        }
+        //        return existingRedirector(context);
+        //    };
+
+
+        //private static void InitializeIdentityServer(IServiceProvider provider)
+        //{
+        //    var context = provider.GetRequiredService<ConfigurationDbContext>();
+        //    if (!context.Clients.Any())
+        //    {
+        //        foreach (var client in IdentityServerConfiguration.GetClients())
+        //        {
+        //            context.Clients.Add(client.ToEntity());
+        //        }
+        //        context.SaveChanges();
+        //    }
+
+        //    if (!context.IdentityResources.Any())
+        //    {
+        //        foreach (var resource in IdentityServerConfiguration.GetIdentityResources())
+        //        {
+        //            context.IdentityResources.Add(resource.ToEntity());
+        //        }
+        //        context.SaveChanges();
+        //    }
+
+        //    if (!context.ApiResources.Any())
+        //    {
+        //        foreach (var resource in IdentityServerConfiguration.GetApis())
+        //        {
+        //            context.ApiResources.Add(resource.ToEntity());
+        //        }
+        //        context.SaveChanges();
+        //    }
+        //}
     }
 }
