@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+  AbstractControl
+} from "@angular/forms";
+
+import { IdentityService } from "src/app/services/Identity/identity.service";
+import { ValidationRulesService } from 'src/app/services/Identity/validation-rules.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
+  form: FormGroup;
+  submitted = false;
 
-  constructor() { }
+  login = new FormControl("", [Validators.required, this.validationRulesService.loginHasEmailFormat]);
+  password = new FormControl("", Validators.required);
 
-  ngOnInit() {
+
+  constructor(formBuilder: FormBuilder, private identityService: IdentityService, private validationRulesService: ValidationRulesService) {
+    this.form = formBuilder.group({
+      login: this.login,
+      password: this.password
+    });
   }
 
+  get f() { return this.form.controls; }
+
+  onLogin() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      console.log(this.form.errors);
+      return;
+    }
+    this.identityService.login(this.login.value, this.password.value);
+
+    console.log(this.form);
+  }
+
+  ngOnInit() {}
 }

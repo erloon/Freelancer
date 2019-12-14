@@ -18,7 +18,7 @@ import { BalanceComponent } from './pages/balance/balance.component';
 import { CompanyProfileComponent } from './pages/company-profile/company-profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,9 @@ import { RegisterComponent } from './pages/register/register.component';
     CommonModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
