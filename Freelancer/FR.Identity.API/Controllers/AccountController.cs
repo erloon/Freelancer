@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using FR.Identity.API.Infrastructure;
-using FR.Identity.API.Model;
+using FR.IdentityServer.Infrastructure;
+using FR.IdentityServer.Model;
+using FR.IdentityServer.Model.API;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FR.Identity.API.Controllers
+namespace FR.IdentityServer.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -63,7 +60,8 @@ namespace FR.Identity.API.Controllers
  
                 user = new ApplicationUser
                 {
-                    UserName = registerUser.Email,
+                    UserName = registerUser.Name,
+                    Name =  registerUser.Name,
                     Id = Guid.NewGuid().ToString(),
                     Email = registerUser.Email,
                     CompanyName = registerUser.CompanyName

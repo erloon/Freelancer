@@ -10013,9 +10013,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Freelancer\\Freelancer\\FR.Identity.API\\FR.Identity.API.csproj",
-      "projectName": "FR.Identity.API",
-      "projectPath": "D:\\Freelancer\\Freelancer\\FR.Identity.API\\FR.Identity.API.csproj",
+      "projectUniqueName": "D:\\Freelancer\\Freelancer\\FR.Identity.API\\FR.IdentityServer.API.csproj",
+      "projectName": "FR.IdentityServer.API",
+      "projectPath": "D:\\Freelancer\\Freelancer\\FR.Identity.API\\FR.IdentityServer.API.csproj",
       "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
       "outputPath": "D:\\Freelancer\\Freelancer\\FR.Identity.API\\obj\\",
       "projectStyle": "PackageReference",

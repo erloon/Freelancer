@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using FR.Identity.API.Model;
+using FR.IdentityServer.Model;
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Extensions;
@@ -10,7 +10,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Identity;
 
-namespace FR.Identity.API.Infrastructure
+namespace FR.IdentityServer.Infrastructure
 {
     public class IdentityClaimsProfileService : IProfileService
     {

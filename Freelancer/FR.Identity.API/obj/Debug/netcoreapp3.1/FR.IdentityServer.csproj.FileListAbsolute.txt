@@ -1,0 +1,6 @@
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\FR.IdentityServer.csprojAssemblyReference.cache
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\staticwebassets\FR.IdentityServer.StaticWebAssets.Manifest.cache
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\staticwebassets\FR.IdentityServer.StaticWebAssets.xml
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\FR.IdentityServer.MvcApplicationPartsAssemblyInfo.cache
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\FR.IdentityServer.AssemblyInfoInputs.cache
+D:\Freelancer\Freelancer\FR.Identity.API\obj\Debug\netcoreapp3.1\FR.IdentityServer.AssemblyInfo.cs

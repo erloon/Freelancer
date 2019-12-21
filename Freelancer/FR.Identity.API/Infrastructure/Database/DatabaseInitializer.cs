@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Security.Claims;
-using FR.Identity.API.Model;
+using FR.IdentityServer.Model;
 using IdentityModel;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FR.Identity.API.Infrastructure.Database
+namespace FR.IdentityServer.Infrastructure.Database
 {
     public class DatabaseInitializer
     {

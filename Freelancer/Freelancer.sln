@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FR.Identity.API", "FR.Identity.API\FR.Identity.API.csproj", "{4B50BFD1-4B4C-4156-858C-CB78B8D63757}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FR.IdentityServer.API", "FR.Identity.API\FR.IdentityServer.API.csproj", "{4B50BFD1-4B4C-4156-858C-CB78B8D63757}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{8F640E7C-F889-4F81-A1C0-493149C0A62E}"
 EndProject
@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FR.FinanceManager.API", "Fi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2E43320D-1B07-4F79-A46F-13ECEA1ED91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FR.Spa.Client", "Web\FR.Spa.Client\FR.Spa.Client.csproj", "{AD31ECAB-D864-4CD1-AF83-149D163D67CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FR.Spa.Client", "Web\FR.Spa.Client\FR.Spa.Client.csproj", "{AD31ECAB-D864-4CD1-AF83-149D163D67CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FR.IdentityServer", "Identity\FR.IdentityServer\FR.IdentityServer.csproj", "{BC949395-7BBC-459E-BDEC-829B10143123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AD31ECAB-D864-4CD1-AF83-149D163D67CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD31ECAB-D864-4CD1-AF83-149D163D67CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD31ECAB-D864-4CD1-AF83-149D163D67CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC949395-7BBC-459E-BDEC-829B10143123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC949395-7BBC-459E-BDEC-829B10143123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC949395-7BBC-459E-BDEC-829B10143123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC949395-7BBC-459E-BDEC-829B10143123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{4B50BFD1-4B4C-4156-858C-CB78B8D63757} = {8F640E7C-F889-4F81-A1C0-493149C0A62E}
 		{585DDFB0-1429-4412-9E91-CA7010F166D9} = {D1A1A77E-E542-47EE-8988-E9DE33892375}
 		{AD31ECAB-D864-4CD1-AF83-149D163D67CE} = {2E43320D-1B07-4F79-A46F-13ECEA1ED91B}
+		{BC949395-7BBC-459E-BDEC-829B10143123} = {8F640E7C-F889-4F81-A1C0-493149C0A62E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D51A8FA-E857-48C5-8E7E-A79461D09CA6}

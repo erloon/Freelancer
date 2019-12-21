@@ -1,25 +1,18 @@
 using System;
-using System.Net;
 using System.Reflection;
-using System.Threading.Tasks;
-using FR.Identity.API.Infrastructure;
-using FR.Identity.API.Infrastructure.Database;
-using FR.Identity.API.Model;
-using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServer4.EntityFramework.Mappers;
+using FR.IdentityServer.Infrastructure;
+using FR.IdentityServer.Infrastructure.Database;
+using FR.IdentityServer.Model;
 using IdentityServer4.Services;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace FR.Identity.API
+namespace FR.IdentityServer
 {
     public class Startup
     {
@@ -46,12 +39,19 @@ namespace FR.Identity.API
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            var builder = services.AddIdentityServer(options =>
-            {
-                options.IssuerUri = "null";
-                options.Authentication.CookieLifetime = TimeSpan.FromHours(8);
+            var builder = services.AddIdentityServer()
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = o =>
+                    {
+                        o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"), so =>
+                        {
+                            so.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name);
+                        });
 
-            }).AddOperationalStore(options =>
+                    };
+                })
+                .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = o =>
                     {
