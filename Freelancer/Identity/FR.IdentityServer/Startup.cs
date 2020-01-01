@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -90,7 +91,9 @@ namespace FR.IdentityServer
                 .AllowAnyHeader()));
             services.AddControllers();
 
-            services.AddMvc(options => { options.EnableEndpointRouting = false; }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => { options.EnableEndpointRouting = false; })
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,7 +106,7 @@ namespace FR.IdentityServer
 
             app.UseRouting();
             app.UseCors("AllowAll");
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseIdentityServer();
             app.UseStaticFiles();
             //app.UseEndpoints(endpoints =>

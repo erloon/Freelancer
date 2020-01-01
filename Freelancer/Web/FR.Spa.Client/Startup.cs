@@ -26,6 +26,9 @@ namespace FR.Spa.Client
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,13 +45,13 @@ namespace FR.Spa.Client
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
             }
-
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

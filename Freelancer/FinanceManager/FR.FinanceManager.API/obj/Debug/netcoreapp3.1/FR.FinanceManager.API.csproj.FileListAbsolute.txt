@@ -9,6 +9,8 @@ D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcorea
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\FR.FinanceManager.API.pdb
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -105,7 +107,6 @@ D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcorea
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.csprojAssemblyReference.cache
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\staticwebassets\FR.FinanceManager.API.StaticWebAssets.Manifest.cache
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\staticwebassets\FR.FinanceManager.API.StaticWebAssets.xml
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.MvcApplicationPartsAssemblyInfo.cache
@@ -115,5 +116,3 @@ D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcorea
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.csproj.CopyComplete
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.pdb
-D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll

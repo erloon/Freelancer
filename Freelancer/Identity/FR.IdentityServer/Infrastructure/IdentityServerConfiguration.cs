@@ -21,6 +21,7 @@ namespace FR.IdentityServer.Infrastructure
             return new List<ApiResource>
             {
                 new ApiResource("FinanceManagerAPI", "Finance Manager service")
+              
             };
         }
 

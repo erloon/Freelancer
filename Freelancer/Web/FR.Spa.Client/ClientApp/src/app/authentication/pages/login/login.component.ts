@@ -42,5 +42,7 @@ export class LoginComponent implements OnInit {
     //this.identityService.login(this.login.value, this.password.value);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.identityService.login();
+  }
 }

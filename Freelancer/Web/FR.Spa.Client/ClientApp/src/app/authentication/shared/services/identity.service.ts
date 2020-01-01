@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
-import { UserManager, UserManagerSettings, User } from "oidc-client";
-import { BehaviorSubject, } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
-import { ConfigService } from "./config.service";
+import { Injectable } from '@angular/core';
+import { UserManager, UserManagerSettings, User } from 'oidc-client';
+import { BehaviorSubject, } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { ConfigService } from './config.service';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class IdentityService {
 
-  private _authNavStatusSource = new BehaviorSubject<boolean>(false);
-  authNavStatus$ = this._authNavStatusSource.asObservable();
+  private _authenticationStatusSource = new BehaviorSubject<boolean>(false);
+  authenticationStatus$ = this._authenticationStatusSource.asObservable();
 
   private manager = new UserManager(getClientSettings());
   private user: User | null;
@@ -20,7 +20,7 @@ export class IdentityService {
   constructor(private http: HttpClient, private configService: ConfigService) {
     this.manager.getUser().then(user => {
       this.user = user;
-      this._authNavStatusSource.next(this.isAuthenticated());
+      this._authenticationStatusSource.next(this.isAuthenticated());
     });
   }
 
@@ -30,7 +30,7 @@ export class IdentityService {
 
   async completeAuthentication() {
     this.user = await this.manager.signinRedirectCallback();
-    this._authNavStatusSource.next(this.isAuthenticated());
+    this._authenticationStatusSource.next(this.isAuthenticated());
   }
 
   loginByGoogle() { } // TODO
@@ -55,7 +55,7 @@ export class IdentityService {
   }
 
   get name(): string {
-    return this.user != null ? this.user.profile.name : "";
+    return this.user != null ? this.user.profile.name : '';
   }
 
   signout() {
@@ -65,15 +65,15 @@ export class IdentityService {
 
 export function getClientSettings(): UserManagerSettings {
   return {
-    authority: "http://localhost:5000",
-    client_id: "spa",
-    redirect_uri: "http://localhost:4200/auth-callback",
-    post_logout_redirect_uri: "http://localhost:4200/",
-    response_type: "id_token token",
-    scope: "openid profile email FinanceManagerAPI",
+    authority: 'http://localhost:5000',
+    client_id: 'spa',
+    redirect_uri: 'http://localhost:4200/auth-callback',
+    post_logout_redirect_uri: 'http://localhost:4200/',
+    response_type: 'id_token token',
+    scope: 'openid profile email FinanceManagerAPI',
     filterProtocolClaims: true,
     loadUserInfo: true,
     automaticSilentRenew: true,
-    silent_redirect_uri: "http://localhost:4200/silent-refresh.html"
+    silent_redirect_uri: 'http://localhost:4200/silent-refresh.html'
   };
 }
