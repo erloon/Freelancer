@@ -4,7 +4,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FinancialManagerComponent } from './pages/financial-manager/financial-manager.component';
 import { BalanceComponent } from './pages/balance/balance.component';
 import { CompanyProfileComponent } from './pages/company-profile/company-profile.component';
-import { LoginComponent } from './authentication/pages/login/login.component';
 import { RegisterComponent } from './authentication/pages/register/register.component';
 import { AuthCallbackComponent } from './authentication/components/auth-callback/auth-callback.component';
 

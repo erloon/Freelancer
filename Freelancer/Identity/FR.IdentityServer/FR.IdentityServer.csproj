@@ -38,7 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Identity\" />
-    <Folder Include="wwwroot\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Consent\" />
     <Folder Include="Views\Home\" />

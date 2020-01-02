@@ -150,3 +150,5 @@ D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\FR.I
 D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\FR.IdentityServer.dll
 D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\FR.IdentityServer.pdb
 D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\FR.IdentityServer.csprojAssemblyReference.cache
+D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\Account\LoggedOut.cshtml.g.cs
+D:\Freelancer\Freelancer\Identity\FR.IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\Account\Logout.cshtml.g.cs

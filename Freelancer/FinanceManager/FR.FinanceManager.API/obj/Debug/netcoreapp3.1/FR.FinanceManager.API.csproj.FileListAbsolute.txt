@@ -116,3 +116,4 @@ D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcorea
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.csproj.CopyComplete
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.dll
 D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.pdb
+D:\Freelancer\Freelancer\FinanceManager\FR.FinanceManager.API\obj\Debug\netcoreapp3.1\FR.FinanceManager.API.csprojAssemblyReference.cache
