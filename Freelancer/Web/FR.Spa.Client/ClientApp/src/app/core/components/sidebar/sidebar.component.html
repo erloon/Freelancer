@@ -7,8 +7,8 @@
       </div>
     </div>
     <div class="profile-details text-center pb-4">
-      <p class="mb-0 text-uppercase name">Nazwa firmy</p>
-      <small class="text-uppercase role">Właściciel</small>
+      <p class="mb-0 text-uppercase name">{{companyName}}</p>
+      <small class="text-uppercase role">{{companyOwner}}</small>
     </div>
   </div>
   <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
@@ -32,30 +32,18 @@
         </a>
       </li>
       <li>
-          <a href="#" routerLink="/balance" routerLinkActive="active">
-            <i class="fas fa-balance-scale"></i>
-            <span>Bilans</span>
-          </a>
-        </li>
-        <li>
-            <a href="#" routerLink="/login" routerLinkActive="active">
-              <i class="fas fa-balance-scale"></i>
-              <span>Logowanie</span>
-            </a>
-          </li>
-          <li>
-              <a href="#" routerLink="/register" routerLinkActive="active">
-                <i class="fas fa-balance-scale"></i>
-                <span>Rejestracja</span>
-              </a>
-            </li>
+        <a href="#" routerLink="/balance" routerLinkActive="active">
+          <i class="fas fa-balance-scale"></i>
+          <span>Bilans</span>
+        </a>
+      </li>
     </ul>
     <div class="menu-header mt-4 mb-4">
       Repozytorium
     </div>
     <div class="view-source mb-3">
-      <a href="https://github.com/erloon/Freelancer" target="_blank"
-        class="btn btn-block btn-lightning rounded-0">Kod źródłowy</a>
+      <a href="https://github.com/erloon/Freelancer" target="_blank" class="btn btn-block btn-lightning rounded-0">Kod
+        źródłowy</a>
     </div>
   </nav>
 </aside>

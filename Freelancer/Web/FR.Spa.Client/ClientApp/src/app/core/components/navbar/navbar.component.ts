@@ -1,5 +1,6 @@
 import { AppService } from '../../../services/app.service';
 import { Component, OnInit } from '@angular/core';
+import { IdentityService } from 'src/app/authentication/shared/services/identity.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(
+    private appService: AppService,
+    private identityService: IdentityService) { }
   isCollapsed = true;
   ngOnInit() {
   }
@@ -18,6 +21,9 @@ export class NavbarComponent implements OnInit {
   }
   toggleSidebar() {
     this.appService.toggleSidebar();
+  }
+  signOut(){
+    this.identityService.signout();
   }
 
 }

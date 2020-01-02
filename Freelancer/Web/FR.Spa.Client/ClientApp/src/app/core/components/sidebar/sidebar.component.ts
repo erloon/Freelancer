@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdentityService } from 'src/app/authentication/shared/services/identity.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  companyName: string;
+  companyOwner: string;
+
+  constructor(
+    private identityService: IdentityService
+  ) { }
 
   ngOnInit() {
+    this.companyOwner = this.identityService.name;
   }
 
 }

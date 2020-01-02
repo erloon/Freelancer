@@ -4,6 +4,7 @@ import { BehaviorSubject, } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ConfigService } from './config.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class IdentityService {
   private user: User | null;
 
 
-  constructor(private http: HttpClient, private configService: ConfigService) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private configService: ConfigService) {
     this.manager.getUser().then(user => {
       this.user = user;
       this._authenticationStatusSource.next(this.isAuthenticated());
@@ -59,7 +63,11 @@ export class IdentityService {
   }
 
   signout() {
-    this.manager.signoutRedirect();
+    this.manager.signoutRedirect()
+      .then((res) => {
+        console.log(res);
+        this.router.navigate(['/']);
+      });
   }
 }
 
@@ -74,6 +82,6 @@ export function getClientSettings(): UserManagerSettings {
     filterProtocolClaims: true,
     loadUserInfo: true,
     automaticSilentRenew: true,
-    silent_redirect_uri: 'http://localhost:4200/silent-refresh.html'
+    silent_redirect_uri: 'http://localhost:4200/silent-refresh.html',
   };
 }
