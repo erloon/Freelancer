@@ -54,6 +54,9 @@ export class IdentityService {
     return this.user != null && !this.user.expired;
   }
 
+  get getUser(): User {
+    return this.user;
+  }
   get authorizationHeaderValue(): string {
     return `${this.user.token_type} ${this.user.access_token}`;
   }

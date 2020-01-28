@@ -8,6 +8,7 @@ import {
 import { ValidationRulesService } from 'src/app/authentication/shared/services/validation-rules.service';
 import { templateJitUrl } from '@angular/compiler';
 import { IdentityService } from '../../shared/services/identity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   success: boolean;
-  error: string;
+  errors: Array<string>;
 
   email = new FormControl('', [
     Validators.required,
@@ -27,11 +28,13 @@ export class RegisterComponent implements OnInit {
   ]);
   name = new FormControl('', [
     Validators.required,
-    Validators.maxLength(20)
+    Validators.maxLength(50),
+    Validators.minLength(2)
   ]);
   password = new FormControl('', [
     Validators.required,
-    Validators.maxLength(20)
+    Validators.maxLength(100),
+    Validators.minLength(6)
   ]);
   confirmPassword = new FormControl('', [
     Validators.required,
@@ -39,13 +42,15 @@ export class RegisterComponent implements OnInit {
   ]);
   companyName = new FormControl('', [
     Validators.required,
-    Validators.maxLength(50)
+    Validators.maxLength(100),
+    Validators.minLength(2)
   ]);
 
   constructor(
     private validationRulesService: ValidationRulesService,
     private formBuilder: FormBuilder,
-    public identityService: IdentityService,
+    private identityService: IdentityService,
+    private router: Router
 
   ) {
     this.registerForm = this.formBuilder.group(
@@ -71,25 +76,27 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() { }
 
-  onRegister() {
+  register() {
     this.submitted = true;
     if (this.registerForm.invalid) {
-      console.log(this.registerForm.errors);
       return;
     }
     this.identityService.register(this.email.value, this.name.value, this.companyName.value, this.password.value)
       .subscribe(
         result => {
-          console.log(result);
           if (result) {
             this.success = true;
+            this.router.navigate(['\\']);
           }
         },
-        error => {
-          console.error(error);
-          this.error = error;
+        errorResp => {
+          this.errors = errorResp.error;
         }
       );
+  }
+
+  cancel() {
+    this.router.navigate(['\start']);
   }
 
 }

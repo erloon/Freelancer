@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.companyOwner = this.identityService.name;
+    let user = this.identityService.getUser;
   }
 
 }

@@ -6,14 +6,15 @@ import { BalanceComponent } from './pages/balance/balance.component';
 import { CompanyProfileComponent } from './pages/company-profile/company-profile.component';
 import { RegisterComponent } from './authentication/pages/register/register.component';
 import { AuthCallbackComponent } from './authentication/components/auth-callback/auth-callback.component';
+import { AuthGuard } from './authentication/shared/services/auth.guard';
 
 const routes: Routes = [
- // {path: '',   redirectTo: '/dashboard', pathMatch: 'full'},
- { path: 'auth-callback', component: AuthCallbackComponent  },
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'financialManager', component: FinancialManagerComponent},
-  {path: 'balance', component: BalanceComponent},
-  {path: 'companyProfile', component: CompanyProfileComponent},
+  // {path: '',   redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: 'auth-callback', component: AuthCallbackComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'financialManager', component: FinancialManagerComponent, canActivate: [AuthGuard]},
+  { path: 'balance', component: BalanceComponent, canActivate: [AuthGuard]},
+  { path: 'companyProfile', component: CompanyProfileComponent, canActivate: [AuthGuard]},
 
 ];
 

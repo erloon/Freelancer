@@ -20,6 +20,7 @@ import { CompanyProfileComponent } from './pages/company-profile/company-profile
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
+import { AuthGuard } from './authentication/shared/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { from } from 'rxjs';
     FormsModule,
     ReactiveFormsModule
     ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
