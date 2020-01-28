@@ -109,10 +109,10 @@ namespace FR.IdentityServer
             //app.UseHttpsRedirection();
             app.UseIdentityServer();
             app.UseStaticFiles();
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

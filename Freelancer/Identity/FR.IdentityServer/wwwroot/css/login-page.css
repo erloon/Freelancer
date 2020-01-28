@@ -1,0 +1,42 @@
+﻿
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 767px) {
+    .logo-image {
+        transform: scale(0.5);
+    }
+}
+
+@media (min-width: 768px) {
+    .logo-image {
+        transform: scale(0.75);
+    }
+}
+
+.card {
+    margin-top: 3rem;
+    min-height: 40vh;
+    min-width: 40vh;
+    box-shadow: 4px 4px 10px 0px rgba(204, 202, 204, 1);
+    border-radius: 2%;
+    border: 0px;
+}
+
+.card-title {
+    border-bottom: 1px solid #f2f3f8;
+}
+
+.card-icon i {
+    color: #98a4c7;
+}
+
+
+.card-footer {
+    border-top: 1px solid #f2f3f8;
+    background: none;
+}

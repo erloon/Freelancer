@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using FR.IdentityServer.Extensions;
 using FR.IdentityServer.Infrastructure;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace FR.IdentityServer.Controllers
 {
@@ -68,24 +70,16 @@ namespace FR.IdentityServer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model, string button)
         {
-            // check if we are in the context of an authorization request
             var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
 
-            // the user clicked the "cancel" button
             if (button != "login")
             {
                 if (context != null)
                 {
-                    // if the user cancels, send a result back into IdentityServer as if they 
-                    // denied the consent (even if this client does not require consent).
-                    // this will send back an access denied OIDC error response to the client.
                     await _interaction.GrantConsentAsync(context, ConsentResponse.Denied);
 
-                    // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                     if (await _clientStore.IsPkceClientAsync(context.ClientId))
                     {
-                        // if the client is PKCE then we assume it's native, so this change in how to
-                        // return the response is for better UX for the end user.
                         return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
                     }
 
@@ -93,21 +87,17 @@ namespace FR.IdentityServer.Controllers
                 }
                 else
                 {
-                    // since we don't have a valid context, then we just go back to the home page
                     return Redirect("~/");
                 }
             }
 
             if (ModelState.IsValid)
             {
-                // validate username/password
                 var user = await _userManager.FindByNameAsync(model.Username);
                 if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
                 {
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.Name));
 
-                    // only set explicit expiration here if user chooses "remember me". 
-                    // otherwise we rely upon expiration configured in cookie middleware.
                     AuthenticationProperties props = null;
                     if (AccountOptions.AllowRememberLogin && model.RememberLogin)
                     {
@@ -118,23 +108,25 @@ namespace FR.IdentityServer.Controllers
                         };
                     };
 
-                    // issue authentication cookie with subject ID and username
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("userName", user.UserName));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("name", user.Name));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("email", user.Email));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", Roles.Consumer));
+                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("companyName", user.CompanyName));
+                  
+
                     await HttpContext.SignInAsync(user.Id, user.UserName, props);
 
                     if (context != null)
                     {
                         if (await _clientStore.IsPkceClientAsync(context.ClientId))
                         {
-                            // if the client is PKCE then we assume it's native, so this change in how to
-                            // return the response is for better UX for the end user.
                             return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
                         }
 
-                        // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                         return Redirect(model.ReturnUrl);
                     }
 
-                    // request for a local page
                     if (Url.IsLocalUrl(model.ReturnUrl))
                     {
                         return Redirect(model.ReturnUrl);
@@ -145,7 +137,6 @@ namespace FR.IdentityServer.Controllers
                     }
                     else
                     {
-                        // user might have clicked on a malicious link - should be logged
                         throw new Exception("invalid return URL");
                     }
                 }
@@ -164,11 +155,17 @@ namespace FR.IdentityServer.Controllers
         [Route("api/[controller]")]
         public async Task<IActionResult> Register([FromBody]RegisterRequestViewModel model)
         {
-            //var aVal = 0; var blowUp = 1 / aVal;
 
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                var errorsList =
+                    ModelState.Keys.SelectMany(key => ModelState[key].Errors.Select(error => new IdentityError()
+                    {
+                        Code = "Validation",
+                        Description = error.ErrorMessage
+                    }));
+
+                return BadRequest(errorsList);
             }
 
             var user = new ApplicationUser { UserName = model.Email, Name = model.Name, CompanyName = model.CompanyName, Email = model.Email, Id = Guid.NewGuid().ToString() };

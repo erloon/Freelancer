@@ -1,44 +1,52 @@
-﻿@model FR.IdentityServer.Models.Identity.LoginViewModel
+﻿@using FR.IdentityServer.Models.Identity
+@model FR.IdentityServer.Models.Identity.LoginViewModel
 
-<div class="row">
+<div class="container">
 
     @if (Model.EnableLocalLogin)
     {
-        <div class="col-md-4 offset-md-4">
-
-            <h1 class="mt-5 mb-3">Logowanie</h1>
-
-            <form asp-route="Login">
-                <input type="hidden" asp-for="ReturnUrl" />
-                <div class="form-group">
-                    <label asp-for="Username">Użytkownik</label>
-                    <input class="form-control" placeholder="Użytkownik" asp-for="Username" autofocus>
-                    <div class="invalid-feedback" style="display:block;">
-                        <span asp-validation-for="Username"></span>
+        <div class="logo-image">
+            <img src="~/sparkdata-logo.png">
+        </div>
+        <div class="card border-1 rounded-0 text-center">
+            <div class="card-title mb-1 p-3">
+                <h5>Logowanie</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="Login" class="needs-validation" novalidate>
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <div class="form-group">
+                        <label asp-for="Username">Nazwa</label>
+                        <input class="form-control rounded-0" placeholder="Nazwa użytkownika" asp-for="Username" autofocus>
+                        <div class="invalid-feedback" style="display:block;">
+                            <span asp-validation-for="Username"></span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Password">Hasło</label>
-                    <input type="password" class="form-control" placeholder="Hasło" asp-for="Password" autocomplete="off">
-                    <div class="invalid-feedback" style="display:block;">
-                        <span asp-validation-for="Password"></span>
+                    <div class="form-group">
+                        <label asp-for="Password">Hasło</label>
+                        <input type="password" class="form-control rounded-0" placeholder="Hasło" asp-for="Password" autocomplete="off">
+                        <div class="invalid-feedback" style="display:block;">
+                            <span asp-validation-for="Password"></span>
+                        </div>
                     </div>
-                </div>
-
-                @if (Model.AllowRememberLogin)
-                {
-                    <div class="form-check">
-                        <input type="checkbox" asp-for="RememberLogin" class="form-check-input">
-                        <label asp-for="RememberLogin" class="form-check-label">Zapamiętaj mnie</label>
+                    @if (Model.AllowRememberLogin)
+                    {
+                        <div class="form-check">
+                            <input type="checkbox" asp-for="RememberLogin" class="form-check-input">
+                            <label asp-for="RememberLogin" class="form-check-label">Zapamiętaj mnie</label>
+                        </div>
+                    }
+                    <div class="mt-4 mb-4">
+                        <button class="btn btn-secondary" name="button" value="login">Zaloguj</button>
+                        <button class="btn btn-light" name="button" value="cancel">Anuluj</button>
                     </div>
-                }
 
-                <div class="mt-4 mb-4">
-                    <button class="btn btn-secondary" name="button" value="login">Zaloguj</button>
-                    <button class="btn btn-light" name="button" value="cancel">Anuluj</button>
-                </div>
-            </form>
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger mt-3" role="alert">
+                        <div class="validation-summary-valid" data-valmsg-summary="true">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     }
 
@@ -70,4 +78,5 @@
             There are no login schemes configured for this client.
         </div>
     }
+    
 </div>
