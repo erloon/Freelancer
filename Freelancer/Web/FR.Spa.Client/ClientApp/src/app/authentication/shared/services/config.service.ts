@@ -10,7 +10,4 @@ export class ConfigService {
     return "http://localhost:5000/api";
   }
 
-  get financeManagerApiUrl() {
-    return "http://localhost:5015/api";
-  }
 }
