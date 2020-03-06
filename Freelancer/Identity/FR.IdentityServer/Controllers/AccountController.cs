@@ -7,6 +7,7 @@ using FR.IdentityServer.Infrastructure;
 using FR.IdentityServer.Models;
 using FR.IdentityServer.Models.Identity;
 using IdentityModel;
+using IdentityServer4;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
@@ -16,24 +17,23 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace FR.IdentityServer.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IIdentityServerInteractionService _interaction;
-        private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IClientStore _clientStore;
         private readonly IEventService _events;
+        private readonly IIdentityServerInteractionService _interaction;
+        private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager, 
-            IIdentityServerInteractionService interaction, 
+            UserManager<ApplicationUser> userManager,
+            IIdentityServerInteractionService interaction,
             IAuthenticationSchemeProvider schemeProvider,
-            IClientStore clientStore, 
+            IClientStore clientStore,
             IEventService events,
             SignInManager<ApplicationUser> signInManager)
         {
@@ -46,7 +46,7 @@ namespace FR.IdentityServer.Controllers
         }
 
         /// <summary>
-        /// Entry point into the login workflow
+        ///     Entry point into the login workflow
         /// </summary>
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
@@ -55,16 +55,14 @@ namespace FR.IdentityServer.Controllers
             var vm = await BuildLoginViewModelAsync(returnUrl);
 
             if (vm.IsExternalLoginOnly)
-            {
                 // we only have one option for logging in and it's an external provider
-                return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
-            }
+                return RedirectToAction("Challenge", "External", new {provider = vm.ExternalLoginScheme, returnUrl});
 
             return View(vm);
         }
 
         /// <summary>
-        /// Handle postback from username/password login
+        ///     Handle postback from username/password login
         /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,16 +77,12 @@ namespace FR.IdentityServer.Controllers
                     await _interaction.GrantConsentAsync(context, ConsentResponse.Denied);
 
                     if (await _clientStore.IsPkceClientAsync(context.ClientId))
-                    {
-                        return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
-                    }
+                        return View("Redirect", new RedirectViewModel {RedirectUrl = model.ReturnUrl});
 
                     return Redirect(model.ReturnUrl);
                 }
-                else
-                {
-                    return Redirect("~/");
-                }
+
+                return Redirect("~/");
             }
 
             if (ModelState.IsValid)
@@ -100,45 +94,35 @@ namespace FR.IdentityServer.Controllers
 
                     AuthenticationProperties props = null;
                     if (AccountOptions.AllowRememberLogin && model.RememberLogin)
-                    {
                         props = new AuthenticationProperties
                         {
                             IsPersistent = true,
                             ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
                         };
-                    };
+                    ;
 
-                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("userName", user.UserName));
-                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("name", user.Name));
-                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("email", user.Email));
-                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", Roles.Consumer));
-                    await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("companyName", user.CompanyName));
-                  
+                    await _userManager.AddClaimAsync(user, new Claim("userName", user.UserName));
+                    await _userManager.AddClaimAsync(user, new Claim("name", user.Name));
+                    await _userManager.AddClaimAsync(user, new Claim("email", user.Email));
+                    await _userManager.AddClaimAsync(user, new Claim("role", Roles.Consumer));
+                    await _userManager.AddClaimAsync(user, new Claim("companyName", user.CompanyName));
+
 
                     await HttpContext.SignInAsync(user.Id, user.UserName, props);
 
                     if (context != null)
                     {
                         if (await _clientStore.IsPkceClientAsync(context.ClientId))
-                        {
-                            return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
-                        }
+                            return View("Redirect", new RedirectViewModel {RedirectUrl = model.ReturnUrl});
 
                         return Redirect(model.ReturnUrl);
                     }
 
                     if (Url.IsLocalUrl(model.ReturnUrl))
-                    {
                         return Redirect(model.ReturnUrl);
-                    }
-                    else if (string.IsNullOrEmpty(model.ReturnUrl))
-                    {
+                    if (string.IsNullOrEmpty(model.ReturnUrl))
                         return Redirect("~/");
-                    }
-                    else
-                    {
-                        throw new Exception("invalid return URL");
-                    }
+                    throw new Exception("invalid return URL");
                 }
 
                 await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials"));
@@ -153,13 +137,12 @@ namespace FR.IdentityServer.Controllers
 
         [HttpPost]
         [Route("api/[controller]")]
-        public async Task<IActionResult> Register([FromBody]RegisterRequestViewModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterRequestViewModel model)
         {
-
             if (!ModelState.IsValid)
             {
                 var errorsList =
-                    ModelState.Keys.SelectMany(key => ModelState[key].Errors.Select(error => new IdentityError()
+                    ModelState.Keys.SelectMany(key => ModelState[key].Errors.Select(error => new IdentityError
                     {
                         Code = "Validation",
                         Description = error.ErrorMessage
@@ -168,17 +151,21 @@ namespace FR.IdentityServer.Controllers
                 return BadRequest(errorsList);
             }
 
-            var user = new ApplicationUser { UserName = model.Email, Name = model.Name, CompanyName = model.CompanyName, Email = model.Email, Id = Guid.NewGuid().ToString() };
+            var user = new ApplicationUser
+            {
+                UserName = model.Email, Name = model.Name, CompanyName = model.CompanyName, Email = model.Email,
+                Id = Guid.NewGuid().ToString()
+            };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded) return BadRequest(result.Errors);
 
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("userName", user.UserName));
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("name", user.Name));
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("email", user.Email));
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", Roles.Consumer));
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("companyName", user.CompanyName));
+            await _userManager.AddClaimAsync(user, new Claim("userName", user.UserName));
+            await _userManager.AddClaimAsync(user, new Claim("name", user.Name));
+            await _userManager.AddClaimAsync(user, new Claim("email", user.Email));
+            await _userManager.AddClaimAsync(user, new Claim("role", Roles.Consumer));
+            await _userManager.AddClaimAsync(user, new Claim("companyName", user.CompanyName));
 
             return Ok(new RegisterResponseViewModel(user));
         }
@@ -190,11 +177,9 @@ namespace FR.IdentityServer.Controllers
             var vm = await BuildLogoutViewModelAsync(logoutId);
 
             if (vm.ShowLogoutPrompt == false)
-            {
                 // if the request for logout was properly authenticated from IdentityServer, then
                 // we don't need to show the prompt and can just log the user out directly.
                 return await Logout(vm);
-            }
 
             return View(vm);
         }
@@ -221,15 +206,15 @@ namespace FR.IdentityServer.Controllers
                 // build a return URL so the upstream provider will redirect back
                 // to us after the user has logged out. this allows us to then
                 // complete our single sign-out processing.
-                string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
+                var url = Url.Action("Logout", new {logoutId = vm.LogoutId});
 
                 // this triggers a redirect to the external provider for sign-out
-                return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
+                return SignOut(new AuthenticationProperties {RedirectUri = url}, vm.ExternalAuthenticationScheme);
             }
 
             return View("LoggedOut", vm);
         }
-        
+
         /*****************************************/
         /* helper APIs for the AccountController */
         /*****************************************/
@@ -238,27 +223,26 @@ namespace FR.IdentityServer.Controllers
             var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
             if (context?.IdP != null)
             {
-                var local = context.IdP == IdentityServer4.IdentityServerConstants.LocalIdentityProvider;
+                var local = context.IdP == IdentityServerConstants.LocalIdentityProvider;
 
                 // this is meant to short circuit the UI and only trigger the one external IdP
                 var vm = new LoginViewModel
                 {
                     EnableLocalLogin = local,
                     ReturnUrl = returnUrl,
-                    Username = context?.LoginHint,
+                    Username = context?.LoginHint
                 };
 
-                if (!local)
-                {
-                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } };
-                }
+                if (!local) vm.ExternalProviders = new[] {new ExternalProvider {AuthenticationScheme = context.IdP}};
 
                 return vm;
             }
 
             var schemes = await _schemeProvider.GetAllSchemesAsync();
 
-            var providers = schemes.Where(x => x.DisplayName != null || (x.Name.Equals(AccountOptions.WindowsAuthenticationSchemeName, StringComparison.OrdinalIgnoreCase))
+            var providers = schemes.Where(x =>
+                    x.DisplayName != null || x.Name.Equals(AccountOptions.WindowsAuthenticationSchemeName,
+                        StringComparison.OrdinalIgnoreCase)
                 )
                 .Select(x => new ExternalProvider
                 {
@@ -275,9 +259,8 @@ namespace FR.IdentityServer.Controllers
                     allowLocal = client.EnableLocalLogin;
 
                     if (client.IdentityProviderRestrictions != null && client.IdentityProviderRestrictions.Any())
-                    {
-                        providers = providers.Where(provider => client.IdentityProviderRestrictions.Contains(provider.AuthenticationScheme)).ToList();
-                    }
+                        providers = providers.Where(provider =>
+                            client.IdentityProviderRestrictions.Contains(provider.AuthenticationScheme)).ToList();
                 }
             }
 
@@ -316,18 +299,16 @@ namespace FR.IdentityServer.Controllers
             if (User?.Identity.IsAuthenticated == true)
             {
                 var idp = User.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
-                if (idp != null && idp != IdentityServer4.IdentityServerConstants.LocalIdentityProvider)
+                if (idp != null && idp != IdentityServerConstants.LocalIdentityProvider)
                 {
                     var providerSupportsSignout = await HttpContext.GetSchemeSupportsSignOutAsync(idp);
                     if (providerSupportsSignout)
                     {
                         if (vm.LogoutId == null)
-                        {
                             // if there's no current logout context, we need to create one
                             // this captures necessary info from the current logged in user
                             // before we signout and redirect away to the external IdP for signout
                             vm.LogoutId = await _interaction.CreateLogoutContextAsync();
-                        }
 
                         vm.ExternalAuthenticationScheme = idp;
                     }
@@ -339,7 +320,7 @@ namespace FR.IdentityServer.Controllers
 
         private async Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId)
         {
-            var vm = new LogoutViewModel { LogoutId = logoutId, ShowLogoutPrompt = AccountOptions.ShowLogoutPrompt };
+            var vm = new LogoutViewModel {LogoutId = logoutId, ShowLogoutPrompt = AccountOptions.ShowLogoutPrompt};
 
             if (User?.Identity.IsAuthenticated != true)
             {

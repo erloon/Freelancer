@@ -68,9 +68,6 @@ namespace FR.IdentityServer
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                 })
-                .AddInMemoryIdentityResources(IdentityServerConfiguration.GetIdentityResources())
-                .AddInMemoryApiResources(IdentityServerConfiguration.GetApis())
-                .AddInMemoryClients(IdentityServerConfiguration.GetClients())
                 .AddAspNetIdentity<ApplicationUser>();
 
 

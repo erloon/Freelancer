@@ -44,15 +44,15 @@
           "dependencies": {
             "IdentityServer4": {
               "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[3.1.1, )"
             },
             "IdentityServer4.AspNetIdentity": {
               "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[3.1.1, )"
             },
             "IdentityServer4.EntityFramework": {
               "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.AspNetCore.Authentication.Cookies": {
               "target": "Package",
@@ -137,7 +137,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
