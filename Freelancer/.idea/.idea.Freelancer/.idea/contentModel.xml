@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\macie\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\macie\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Freelancer.441601277.00" t="ExcludeRecursive" />
-    <e p="D:\Freelancer\Freelancer" t="IncludeFlat">
-      <e p="FinanceManager" t="Include">
-        <e p="FR.FinanceManager.API" t="IncludeRecursive">
-          <e p="appsettings.Development.json" t="Include" />
-          <e p="appsettings.json" t="Include" />
-          <e p="bin" t="ExcludeRecursive" />
-          <e p="Controllers" t="Include">
-            <e p="ContactController.cs" t="Include" />
-          </e>
-          <e p="Dockerfile" t="Include" />
-          <e p="FR.FinanceManager.API.csproj" t="IncludeRecursive" />
-          <e p="obj" t="ExcludeRecursive">
-            <e p="Debug" t="Include">
-              <e p="netcoreapp3.1" t="Include">
-                <e p="FR.FinanceManager.API.AssemblyInfo.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="Program.cs" t="Include" />
-          <e p="Properties" t="Include">
-            <e p="launchSettings.json" t="Include" />
-          </e>
-          <e p="Startup.cs" t="Include" />
-        </e>
-      </e>
+    <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Freelancer.1905724421.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="FR.IdentityServer.Core" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
         <e p="Entities" t="Include">
           <e p="AggregateId.cs" t="Include" />
           <e p="AggregateRoot.cs" t="Include" />
@@ -40,6 +15,7 @@
           <e p="InvalidAggregateIdException.cs" t="Include" />
         </e>
         <e p="FR.IdentityServer.Core.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -49,7 +25,6 @@
         </e>
       </e>
       <e p="FR.StocksData.Core" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
         <e p="Entities" t="Include">
           <e p="AggregateId.cs" t="Include" />
           <e p="AggregateRoot.cs" t="Include" />
@@ -60,6 +35,7 @@
           <e p="InvalidAggregateIdException.cs" t="Include" />
         </e>
         <e p="FR.StocksData.Core.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -68,15 +44,34 @@
           </e>
         </e>
       </e>
-      <e p="Freelancer.sln" t="IncludeFlat" />
-      <e p="Identity" t="Include">
-        <e p="FR.IdentityServer" t="IncludeRecursive">
+      <e p="FinanceManager" t="Include">
+        <e p="FR.FinanceManager.API" t="IncludeRecursive">
+          <e p="Controllers" t="Include">
+            <e p="ContactController.cs" t="Include" />
+          </e>
+          <e p="Dockerfile" t="Include" />
+          <e p="FR.FinanceManager.API.csproj" t="IncludeRecursive" />
+          <e p="Program.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="launchSettings.json" t="Include" />
+          </e>
+          <e p="Startup.cs" t="Include" />
           <e p="appsettings.Development.json" t="Include" />
           <e p="appsettings.json" t="Include" />
           <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp3.1" t="Include">
+                <e p="FR.FinanceManager.API.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Freelancer.sln" t="IncludeFlat" />
+      <e p="Identity" t="Include">
+        <e p="FR.IdentityServer" t="IncludeRecursive">
           <e p="Controllers" t="Include">
-            <e p="AccountController.cs" t="Include" />
-            <e p="ConsentController.cs" t="Include" />
             <e p="HomeController.cs" t="Include" />
           </e>
           <e p="Dockerfile" t="Include" />
@@ -91,19 +86,19 @@
               <e p="DatabaseInitializer.cs" t="Include" />
               <e p="Migrations" t="Include">
                 <e p="Application" t="Include">
-                  <e p="20191220194239_Initial.cs" t="Include" />
                   <e p="20191220194239_Initial.Designer.cs" t="Include" />
+                  <e p="20191220194239_Initial.cs" t="Include" />
                   <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
                 </e>
                 <e p="IdentityServer" t="Include">
                   <e p="Configuration" t="Include">
-                    <e p="20191220194214_Initial.cs" t="Include" />
                     <e p="20191220194214_Initial.Designer.cs" t="Include" />
+                    <e p="20191220194214_Initial.cs" t="Include" />
                     <e p="ConfigurationDbContextModelSnapshot.cs" t="Include" />
                   </e>
                   <e p="Persisted" t="Include">
-                    <e p="20191220194226_Initial.cs" t="Include" />
                     <e p="20191220194226_Initial.Designer.cs" t="Include" />
+                    <e p="20191220194226_Initial.cs" t="Include" />
                     <e p="PersistedGrantDbContextModelSnapshot.cs" t="Include" />
                   </e>
                 </e>
@@ -135,27 +130,14 @@
               <e p="ScopeViewModel.cs" t="Include" />
             </e>
           </e>
-          <e p="obj" t="ExcludeRecursive">
-            <e p="Debug" t="Include">
-              <e p="netcoreapp3.1" t="Include">
-                <e p="FR.IdentityServer.AssemblyInfo.cs" t="Include" />
-                <e p="FR.IdentityServer.RazorAssemblyInfo.cs" t="Include" />
-              </e>
-            </e>
-          </e>
           <e p="Program.cs" t="Include" />
           <e p="Properties" t="Include">
             <e p="launchSettings.json" t="Include" />
           </e>
           <e p="Startup.cs" t="Include" />
-          <e p="tempkey.rsa" t="Include" />
           <e p="Views" t="Include">
-            <e p="_ViewImports.cshtml" t="Include" />
-            <e p="_ViewStart.cshtml" t="Include" />
             <e p="Account" t="Include">
               <e p="LoggedOut.cshtml" t="Include" />
-              <e p="Login.cshtml" t="Include" />
-              <e p="Logout.cshtml" t="Include" />
             </e>
             <e p="Consent" t="Include">
               <e p="Index.cshtml" t="Include" />
@@ -173,7 +155,21 @@
               <e p="_ValidationScriptsPartial.cshtml" t="Include" />
               <e p="_ValidationSummary.cshtml" t="Include" />
             </e>
+            <e p="_ViewImports.cshtml" t="Include" />
+            <e p="_ViewStart.cshtml" t="Include" />
           </e>
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp3.1" t="Include">
+                <e p="FR.IdentityServer.AssemblyInfo.cs" t="Include" />
+                <e p="FR.IdentityServer.RazorAssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="tempkey.rsa" t="Include" />
           <e p="wwwroot" t="Include">
             <e p="css" t="Include">
               <e p="login-page.css" t="Include" />
@@ -186,6 +182,7 @@
             </e>
             <e p="lib" t="Include">
               <e p="bootstrap" t="Include">
+                <e p="LICENSE" t="Include" />
                 <e p="dist" t="Include">
                   <e p="css" t="Include">
                     <e p="bootstrap-grid.css" t="Include" />
@@ -212,46 +209,42 @@
                     <e p="bootstrap.min.js.map" t="Include" />
                   </e>
                 </e>
-                <e p="LICENSE" t="Include" />
               </e>
               <e p="jquery" t="Include">
+                <e p="LICENSE.txt" t="Include" />
                 <e p="dist" t="Include">
                   <e p="jquery.js" t="Include" />
                   <e p="jquery.min.js" t="Include" />
                   <e p="jquery.min.map" t="Include" />
                 </e>
-                <e p="LICENSE.txt" t="Include" />
               </e>
               <e p="jquery-validation" t="Include">
+                <e p="LICENSE.md" t="Include" />
                 <e p="dist" t="Include">
                   <e p="additional-methods.js" t="Include" />
                   <e p="additional-methods.min.js" t="Include" />
                   <e p="jquery.validate.js" t="Include" />
                   <e p="jquery.validate.min.js" t="Include" />
                 </e>
-                <e p="LICENSE.md" t="Include" />
               </e>
               <e p="jquery-validation-unobtrusive" t="Include">
+                <e p="LICENSE.txt" t="Include" />
                 <e p="jquery.validate.unobtrusive.js" t="Include" />
                 <e p="jquery.validate.unobtrusive.min.js" t="Include" />
-                <e p="LICENSE.txt" t="Include" />
               </e>
             </e>
             <e p="sparkdata-logo.png" t="Include" />
           </e>
         </e>
       </e>
-      <e p="packages" t="ExcludeRecursive" />
       <e p="StocksData" t="Include" />
       <e p="Web" t="Include">
         <e p="FR.Spa.Client" t="IncludeRecursive">
           <e p=".gitignore" t="Include" />
-          <e p="appsettings.Development.json" t="Include" />
-          <e p="appsettings.json" t="Include" />
-          <e p="bin" t="ExcludeRecursive" />
           <e p="ClientApp" t="Include">
             <e p=".editorconfig" t="Include" />
             <e p=".gitignore" t="Include" />
+            <e p="README.md" t="Include" />
             <e p="angular.json" t="Include" />
             <e p="browserslist" t="Include" />
             <e p="e2e" t="Include">
@@ -262,25 +255,25 @@
               </e>
               <e p="tsconfig.e2e.json" t="Include" />
             </e>
-            <e p="node_modules\@angular\animations" t="IncludeRecursive" />
-            <e p="node_modules\@angular\cli" t="IncludeRecursive" />
-            <e p="node_modules\@angular\common" t="IncludeRecursive" />
-            <e p="node_modules\@angular\compiler" t="IncludeRecursive" />
-            <e p="node_modules\@angular\compiler-cli" t="IncludeRecursive" />
-            <e p="node_modules\@angular\core" t="IncludeRecursive" />
-            <e p="node_modules\@angular\forms" t="IncludeRecursive" />
-            <e p="node_modules\@angular\platform-browser" t="IncludeRecursive" />
-            <e p="node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
-            <e p="node_modules\@angular\router" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\architect" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\build-angular" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\build-optimizer" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\build-webpack" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\core" t="IncludeRecursive" />
-            <e p="node_modules\@angular-devkit\schematics" t="IncludeRecursive" />
-            <e p="node_modules\@fortawesome\fontawesome-free" t="IncludeRecursive" />
-            <e p="node_modules\@ngtools\webpack" t="IncludeRecursive" />
-            <e p="node_modules\@types" t="IncludeRecursive">
+            <e p="node_modules/@angular/animations" t="IncludeRecursive" />
+            <e p="node_modules/@angular/cli" t="IncludeRecursive" />
+            <e p="node_modules/@angular/common" t="IncludeRecursive" />
+            <e p="node_modules/@angular/compiler" t="IncludeRecursive" />
+            <e p="node_modules/@angular/compiler-cli" t="IncludeRecursive" />
+            <e p="node_modules/@angular/core" t="IncludeRecursive" />
+            <e p="node_modules/@angular/forms" t="IncludeRecursive" />
+            <e p="node_modules/@angular/platform-browser" t="IncludeRecursive" />
+            <e p="node_modules/@angular/platform-browser-dynamic" t="IncludeRecursive" />
+            <e p="node_modules/@angular/router" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/architect" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/build-angular" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/build-optimizer" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/build-webpack" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/core" t="IncludeRecursive" />
+            <e p="node_modules/@angular-devkit/schematics" t="IncludeRecursive" />
+            <e p="node_modules/@fortawesome/fontawesome-free" t="IncludeRecursive" />
+            <e p="node_modules/@ngtools/webpack" t="IncludeRecursive" />
+            <e p="node_modules/@types" t="IncludeRecursive">
               <e p="events" t="IncludeRecursive" />
               <e p="jasmine" t="IncludeRecursive" />
               <e p="jasminewd2" t="IncludeRecursive" />
@@ -288,54 +281,53 @@
               <e p="node" t="IncludeRecursive" />
               <e p="source-list-map" t="IncludeRecursive" />
             </e>
-            <e p="node_modules\ajv" t="IncludeRecursive" />
-            <e p="node_modules\blocking-proxy" t="IncludeRecursive" />
-            <e p="node_modules\bootstrap" t="IncludeRecursive" />
-            <e p="node_modules\canonical-path" t="IncludeRecursive" />
-            <e p="node_modules\chalk" t="IncludeRecursive" />
-            <e p="node_modules\chart.js" t="IncludeRecursive" />
-            <e p="node_modules\chokidar" t="IncludeRecursive" />
-            <e p="node_modules\codelyzer" t="IncludeRecursive" />
-            <e p="node_modules\commander" t="IncludeRecursive" />
-            <e p="node_modules\core-js" t="IncludeRecursive" />
-            <e p="node_modules\dependency-graph" t="IncludeRecursive" />
-            <e p="node_modules\es6-promise" t="IncludeRecursive" />
-            <e p="node_modules\fast-deep-equal" t="IncludeRecursive" />
-            <e p="node_modules\hamburgers" t="IncludeRecursive" />
-            <e p="node_modules\jasmine-core" t="IncludeRecursive" />
-            <e p="node_modules\jasmine-spec-reporter" t="IncludeRecursive" />
-            <e p="node_modules\jest-worker" t="IncludeRecursive" />
-            <e p="node_modules\karma" t="IncludeRecursive" />
-            <e p="node_modules\karma-chrome-launcher" t="IncludeRecursive" />
-            <e p="node_modules\karma-coverage-istanbul-reporter" t="IncludeRecursive" />
-            <e p="node_modules\karma-jasmine" t="IncludeRecursive" />
-            <e p="node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
-            <e p="node_modules\license-webpack-plugin" t="IncludeRecursive" />
-            <e p="node_modules\magic-string" t="IncludeRecursive" />
-            <e p="node_modules\ngx-bootstrap" t="IncludeRecursive" />
-            <e p="node_modules\ngx-toastr" t="IncludeRecursive" />
-            <e p="node_modules\node-sass" t="IncludeRecursive" />
-            <e p="node_modules\oidc-client" t="IncludeRecursive" />
-            <e p="node_modules\portfinder" t="IncludeRecursive" />
-            <e p="node_modules\postcss" t="IncludeRecursive" />
-            <e p="node_modules\protractor" t="IncludeRecursive" />
-            <e p="node_modules\reflect-metadata" t="IncludeRecursive" />
-            <e p="node_modules\rxjs" t="IncludeRecursive" />
-            <e p="node_modules\source-map" t="IncludeRecursive" />
-            <e p="node_modules\sourcemap-codec" t="IncludeRecursive" />
-            <e p="node_modules\symbol-observable" t="IncludeRecursive" />
-            <e p="node_modules\terser" t="IncludeRecursive" />
-            <e p="node_modules\tree-kill" t="IncludeRecursive" />
-            <e p="node_modules\ts-node" t="IncludeRecursive" />
-            <e p="node_modules\tslib" t="IncludeRecursive" />
-            <e p="node_modules\tslint" t="IncludeRecursive" />
-            <e p="node_modules\uri-js" t="IncludeRecursive" />
-            <e p="node_modules\webdriver-js-extender" t="IncludeRecursive" />
-            <e p="node_modules\worker-farm" t="IncludeRecursive" />
-            <e p="node_modules\zone.js" t="IncludeRecursive" />
+            <e p="node_modules/ajv" t="IncludeRecursive" />
+            <e p="node_modules/blocking-proxy" t="IncludeRecursive" />
+            <e p="node_modules/bootstrap" t="IncludeRecursive" />
+            <e p="node_modules/canonical-path" t="IncludeRecursive" />
+            <e p="node_modules/chalk" t="IncludeRecursive" />
+            <e p="node_modules/chart.js" t="IncludeRecursive" />
+            <e p="node_modules/chokidar" t="IncludeRecursive" />
+            <e p="node_modules/codelyzer" t="IncludeRecursive" />
+            <e p="node_modules/commander" t="IncludeRecursive" />
+            <e p="node_modules/core-js" t="IncludeRecursive" />
+            <e p="node_modules/dependency-graph" t="IncludeRecursive" />
+            <e p="node_modules/es6-promise" t="IncludeRecursive" />
+            <e p="node_modules/fast-deep-equal" t="IncludeRecursive" />
+            <e p="node_modules/hamburgers" t="IncludeRecursive" />
+            <e p="node_modules/jasmine-core" t="IncludeRecursive" />
+            <e p="node_modules/jasmine-spec-reporter" t="IncludeRecursive" />
+            <e p="node_modules/jest-worker" t="IncludeRecursive" />
+            <e p="node_modules/karma" t="IncludeRecursive" />
+            <e p="node_modules/karma-chrome-launcher" t="IncludeRecursive" />
+            <e p="node_modules/karma-coverage-istanbul-reporter" t="IncludeRecursive" />
+            <e p="node_modules/karma-jasmine" t="IncludeRecursive" />
+            <e p="node_modules/karma-jasmine-html-reporter" t="IncludeRecursive" />
+            <e p="node_modules/license-webpack-plugin" t="IncludeRecursive" />
+            <e p="node_modules/magic-string" t="IncludeRecursive" />
+            <e p="node_modules/ngx-bootstrap" t="IncludeRecursive" />
+            <e p="node_modules/ngx-toastr" t="IncludeRecursive" />
+            <e p="node_modules/node-sass" t="IncludeRecursive" />
+            <e p="node_modules/oidc-client" t="IncludeRecursive" />
+            <e p="node_modules/portfinder" t="IncludeRecursive" />
+            <e p="node_modules/postcss" t="IncludeRecursive" />
+            <e p="node_modules/protractor" t="IncludeRecursive" />
+            <e p="node_modules/reflect-metadata" t="IncludeRecursive" />
+            <e p="node_modules/rxjs" t="IncludeRecursive" />
+            <e p="node_modules/source-map" t="IncludeRecursive" />
+            <e p="node_modules/sourcemap-codec" t="IncludeRecursive" />
+            <e p="node_modules/symbol-observable" t="IncludeRecursive" />
+            <e p="node_modules/terser" t="IncludeRecursive" />
+            <e p="node_modules/tree-kill" t="IncludeRecursive" />
+            <e p="node_modules/ts-node" t="IncludeRecursive" />
+            <e p="node_modules/tslib" t="IncludeRecursive" />
+            <e p="node_modules/tslint" t="IncludeRecursive" />
+            <e p="node_modules/uri-js" t="IncludeRecursive" />
+            <e p="node_modules/webdriver-js-extender" t="IncludeRecursive" />
+            <e p="node_modules/worker-farm" t="IncludeRecursive" />
+            <e p="node_modules/zone.js" t="IncludeRecursive" />
             <e p="package-lock.json" t="Include" />
             <e p="package.json" t="Include" />
-            <e p="README.md" t="Include" />
             <e p="src" t="Include">
               <e p="app" t="Include">
                 <e p="app-routing.module.ts" t="Include" />
@@ -367,7 +359,7 @@
                       <e p="register.component.ts" t="Include" />
                     </e>
                   </e>
-                  <e p="Shared" t="Include">
+                  <e p="shared" t="Include">
                     <e p="model" t="Include">
                       <e p="contact.ts" t="Include" />
                       <e p="user.registration.ts" t="Include" />
@@ -451,7 +443,7 @@
                   <e p="app.service.spec.ts" t="Include" />
                   <e p="app.service.ts" t="Include" />
                 </e>
-                <e p="Shared" t="Include">
+                <e p="shared" t="Include">
                   <e p="configuration.service.ts" t="Include" />
                 </e>
               </e>
@@ -497,6 +489,20 @@
             <e p="WeatherForecastController.cs" t="Include" />
           </e>
           <e p="FR.Spa.Client.csproj" t="IncludeRecursive" />
+          <e p="Pages" t="Include">
+            <e p="Error.cshtml" t="Include" />
+            <e p="Error.cshtml.cs" t="Include" />
+            <e p="_ViewImports.cshtml" t="Include" />
+          </e>
+          <e p="Program.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="launchSettings.json" t="Include" />
+          </e>
+          <e p="Startup.cs" t="Include" />
+          <e p="WeatherForecast.cs" t="Include" />
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">
@@ -505,22 +511,12 @@
               </e>
             </e>
           </e>
-          <e p="pages" t="Include">
-            <e p="_ViewImports.cshtml" t="Include" />
-            <e p="Error.cshtml" t="Include" />
-            <e p="Error.cshtml.cs" t="Include" />
-          </e>
-          <e p="Program.cs" t="Include" />
-          <e p="Properties" t="Include">
-            <e p="launchSettings.json" t="Include" />
-          </e>
-          <e p="Startup.cs" t="Include" />
-          <e p="WeatherForecast.cs" t="Include" />
           <e p="wwwroot" t="Include">
             <e p="favicon.ico" t="Include" />
           </e>
         </e>
       </e>
+      <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

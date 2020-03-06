@@ -44,5 +44,15 @@
     <Folder Include="Views\Shared\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Account\Login.cshtml" />
+    <Content Remove="Views\Account\Logout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ConsentController.cs" />
+    <Compile Remove="Controllers\AccountController.cs" />
+  </ItemGroup>
+
 
 </Project>

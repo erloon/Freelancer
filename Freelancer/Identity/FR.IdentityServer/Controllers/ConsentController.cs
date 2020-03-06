@@ -60,7 +60,7 @@ namespace FR.IdentityServer.Controllers
 
         /// <summary>
         /// Handles the consent screen postback
-        /// </summary>
+        /// </summary>n
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ConsentInputModel model)

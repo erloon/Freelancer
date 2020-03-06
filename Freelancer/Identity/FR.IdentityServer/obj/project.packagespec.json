@@ -1,15 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\FR.IdentityServer.csproj",
+    "projectUniqueName": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/FR.IdentityServer.csproj",
     "projectName": "FR.IdentityServer",
-    "projectPath": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\FR.IdentityServer.csproj",
-    "outputPath": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\obj\\",
+    "projectPath": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/FR.IdentityServer.csproj",
+    "outputPath": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/obj/",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "C:\\Microsoft\\Xamarin\\NuGet",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
@@ -125,7 +121,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
     }
   }
 }

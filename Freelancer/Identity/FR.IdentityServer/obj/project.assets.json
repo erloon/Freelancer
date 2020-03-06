@@ -10061,27 +10061,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\macie\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/erloon/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\FR.IdentityServer.csproj",
+      "projectUniqueName": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/FR.IdentityServer.csproj",
       "projectName": "FR.IdentityServer",
-      "projectPath": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\FR.IdentityServer.csproj",
-      "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
-      "outputPath": "D:\\Freelancer\\Freelancer\\Identity\\FR.IdentityServer\\obj\\",
+      "projectPath": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/FR.IdentityServer.csproj",
+      "packagesPath": "/home/erloon/.nuget/packages/",
+      "outputPath": "/home/erloon/Repositories/Freelancer/Freelancer/Identity/FR.IdentityServer/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\macie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/home/erloon/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -10198,7 +10190,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
       }
     }
   }
