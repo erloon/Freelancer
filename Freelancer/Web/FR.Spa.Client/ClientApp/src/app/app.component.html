@@ -1,0 +1,17 @@
+<div *ngIf="!isAuthenticated">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="isAuthenticated">
+  <div class="wrapper default-theme" [ngClass]="getClasses()">
+    <app-navbar></app-navbar>
+    <main>
+      <app-sidebar></app-sidebar>
+      <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+        <router-outlet></router-outlet>
+        <hr>
+        <app-footer></app-footer>
+      </div>
+      <div class="overlay" (click)="toggleSidebar()"></div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
+  <div class="navbar-header pl-2 pr-2 ml-3 text-center">
+    <a class="navbar-brand m-0 w-100" href="#">
+      <i class="far fa-id-badge"></i>
+      <span class="ml-1">freelancer --</span>
+    </a>
+  </div>
+  <!-- sidebar toggler -->
+  <div class="sidebar-toggler ml-auto mr-3">
+    <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
+  </div>
+  <div class="nav-toggler-right mr-4 d-md-none">
+    <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseBasic">
+      <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+    </button>
+    <span class="user-profile nav-alert bg-danger"></span>
+  </div>
+  <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
+    <li class="nav-item navicon">
+      <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fas fa-chevron-circle-left"></i></a>
+    </li>
+  </ul>
+  <div class="collapse navbar-collapse right-nav" id="collapseBasic" [collapse]="isCollapsed">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a href="#" routerLink="/companyProfile" routerLinkActive="active" class="btn nav-link">
+          <i class="far fa-user"></i>
+          <span class="link-text">Profil</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="signOut()" class="btn nav-link">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="link-text">Wyloguj</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

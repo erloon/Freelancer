@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-lg btn-info" (click)="getContacts()">Pobierz</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li *ngFor="let contact of contacts">
+          {{contact.name}} - {{contact.username}} - {{contact.email}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
