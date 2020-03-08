@@ -35,7 +35,7 @@ namespace FR.IdentityServer
         {
              services.AddDbContext<ApplicationDbContext>(o =>
             {
-                o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"));
+                o.UseNpgsql(Configuration.GetConnectionString("FreelancerIdentity"));
             });
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -47,7 +47,7 @@ namespace FR.IdentityServer
                 {
                     options.ConfigureDbContext = o =>
                     {
-                        o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"), so =>
+                        o.UseNpgsql(Configuration.GetConnectionString("FreelancerIdentity"), so =>
                         {
                             so.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name);
                         });
@@ -58,7 +58,7 @@ namespace FR.IdentityServer
                 {
                     options.ConfigureDbContext = o =>
                     {
-                        o.UseSqlServer(Configuration.GetConnectionString("FreelancerIdentity"), so =>
+                        o.UseNpgsql(Configuration.GetConnectionString("FreelancerIdentity"), so =>
                             {
                                 so.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name);
                             });
@@ -72,14 +72,14 @@ namespace FR.IdentityServer
 
 
 
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT").Contains("Development"))
-            {
-                builder.AddDeveloperSigningCredential();
-            }
-            else
-            {
-                throw new Exception("need to configure key material");
-            }
+            // if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT").Contains("Development"))
+            // {
+            //     builder.AddDeveloperSigningCredential();
+            // }
+            // else
+            // {
+            //     throw new Exception("need to configure key material");
+            // }
 
             services.AddTransient<IProfileService, IdentityClaimsProfileService>();
 

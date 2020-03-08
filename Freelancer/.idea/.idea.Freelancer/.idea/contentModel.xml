@@ -1,49 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Freelancer.1905724421.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="FR.IdentityServer.Core" t="IncludeRecursive">
-        <e p="Entities" t="Include">
-          <e p="AggregateId.cs" t="Include" />
-          <e p="AggregateRoot.cs" t="Include" />
-          <e p="IDomainEvent.cs" t="Include" />
-        </e>
-        <e p="Exceptions" t="Include">
-          <e p="DomainException.cs" t="Include" />
-          <e p="InvalidAggregateIdException.cs" t="Include" />
-        </e>
-        <e p="FR.IdentityServer.Core.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="FR.IdentityServer.Core.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="FR.StocksData.Core" t="IncludeRecursive">
-        <e p="Entities" t="Include">
-          <e p="AggregateId.cs" t="Include" />
-          <e p="AggregateRoot.cs" t="Include" />
-          <e p="IDomainEvent.cs" t="Include" />
-        </e>
-        <e p="Exceptions" t="Include">
-          <e p="DomainException.cs" t="Include" />
-          <e p="InvalidAggregateIdException.cs" t="Include" />
-        </e>
-        <e p="FR.StocksData.Core.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="FR.StocksData.Core.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
       <e p="FinanceManager" t="Include">
         <e p="FR.FinanceManager.API" t="IncludeRecursive">
           <e p="Controllers" t="Include">
@@ -59,6 +20,7 @@
           <e p="appsettings.Development.json" t="Include" />
           <e p="appsettings.json" t="Include" />
           <e p="bin" t="ExcludeRecursive" />
+          <e p="mono_crash.mem.10643.1.blob" t="Include" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">
@@ -86,19 +48,13 @@
               <e p="DatabaseInitializer.cs" t="Include" />
               <e p="Migrations" t="Include">
                 <e p="Application" t="Include">
-                  <e p="20191220194239_Initial.Designer.cs" t="Include" />
-                  <e p="20191220194239_Initial.cs" t="Include" />
                   <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
                 </e>
                 <e p="IdentityServer" t="Include">
                   <e p="Configuration" t="Include">
-                    <e p="20191220194214_Initial.Designer.cs" t="Include" />
-                    <e p="20191220194214_Initial.cs" t="Include" />
                     <e p="ConfigurationDbContextModelSnapshot.cs" t="Include" />
                   </e>
                   <e p="Persisted" t="Include">
-                    <e p="20191220194226_Initial.Designer.cs" t="Include" />
-                    <e p="20191220194226_Initial.cs" t="Include" />
                     <e p="PersistedGrantDbContextModelSnapshot.cs" t="Include" />
                   </e>
                 </e>
@@ -161,6 +117,9 @@
           <e p="appsettings.Development.json" t="Include" />
           <e p="appsettings.json" t="Include" />
           <e p="bin" t="ExcludeRecursive" />
+          <e p="mono_crash.mem.10967.1.blob" t="Include" />
+          <e p="mono_crash.mem.18817.1.blob" t="Include" />
+          <e p="mono_crash.mem.19539.1.blob" t="Include" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">
@@ -169,6 +128,7 @@
               </e>
             </e>
           </e>
+          <e p="packages-microsoft-prod.deb" t="Include" />
           <e p="tempkey.rsa" t="Include" />
           <e p="wwwroot" t="Include">
             <e p="css" t="Include">
@@ -237,7 +197,6 @@
           </e>
         </e>
       </e>
-      <e p="StocksData" t="Include" />
       <e p="Web" t="Include">
         <e p="FR.Spa.Client" t="IncludeRecursive">
           <e p=".gitignore" t="Include" />

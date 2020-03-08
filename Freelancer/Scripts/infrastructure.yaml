@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgresdb
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - freelancer
+    restart: unless-stopped
+
+networks:
+  freelancer:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+  pgadmin:
+    driver: local
