@@ -1,11 +1,3 @@
-D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.csprojAssemblyReference.cache
-D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.AssemblyInfoInputs.cache
-D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.AssemblyInfo.cs
-D:/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.deps.json
-D:/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.dll
-D:/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.pdb
-D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.dll
-D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.pdb
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.deps.json
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.dll
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/bin/Debug/netcoreapp3.1/FR.StocksData.Core.pdb
@@ -14,3 +6,10 @@ D:/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksDat
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.AssemblyInfo.cs
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.dll
 /home/erloon/Repositories/Freelancer/Freelancer/FR.StocksData.Core/obj/Debug/netcoreapp3.1/FR.StocksData.Core.pdb
+D:\Freelancer\Freelancer\FR.StocksData.Core\bin\Debug\netcoreapp3.1\FR.StocksData.Core.deps.json
+D:\Freelancer\Freelancer\FR.StocksData.Core\bin\Debug\netcoreapp3.1\FR.StocksData.Core.dll
+D:\Freelancer\Freelancer\FR.StocksData.Core\bin\Debug\netcoreapp3.1\FR.StocksData.Core.pdb
+D:\Freelancer\Freelancer\FR.StocksData.Core\obj\Debug\netcoreapp3.1\FR.StocksData.Core.AssemblyInfoInputs.cache
+D:\Freelancer\Freelancer\FR.StocksData.Core\obj\Debug\netcoreapp3.1\FR.StocksData.Core.AssemblyInfo.cs
+D:\Freelancer\Freelancer\FR.StocksData.Core\obj\Debug\netcoreapp3.1\FR.StocksData.Core.dll
+D:\Freelancer\Freelancer\FR.StocksData.Core\obj\Debug\netcoreapp3.1\FR.StocksData.Core.pdb

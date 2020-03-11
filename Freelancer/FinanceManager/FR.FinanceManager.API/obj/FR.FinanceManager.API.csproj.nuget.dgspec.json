@@ -1,20 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/erloon/Repositories/Freelancer/Freelancer/FinanceManager/FR.FinanceManager.API/FR.FinanceManager.API.csproj": {}
+    "D:\\Freelancer\\Freelancer\\FinanceManager\\FR.FinanceManager.API\\FR.FinanceManager.API.csproj": {}
   },
   "projects": {
-    "/home/erloon/Repositories/Freelancer/Freelancer/FinanceManager/FR.FinanceManager.API/FR.FinanceManager.API.csproj": {
+    "D:\\Freelancer\\Freelancer\\FinanceManager\\FR.FinanceManager.API\\FR.FinanceManager.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/erloon/Repositories/Freelancer/Freelancer/FinanceManager/FR.FinanceManager.API/FR.FinanceManager.API.csproj",
+        "projectUniqueName": "D:\\Freelancer\\Freelancer\\FinanceManager\\FR.FinanceManager.API\\FR.FinanceManager.API.csproj",
         "projectName": "FR.FinanceManager.API",
-        "projectPath": "/home/erloon/Repositories/Freelancer/Freelancer/FinanceManager/FR.FinanceManager.API/FR.FinanceManager.API.csproj",
-        "packagesPath": "/home/erloon/.nuget/packages/",
-        "outputPath": "/home/erloon/Repositories/Freelancer/Freelancer/FinanceManager/FR.FinanceManager.API/obj/",
+        "projectPath": "D:\\Freelancer\\Freelancer\\FinanceManager\\FR.FinanceManager.API\\FR.FinanceManager.API.csproj",
+        "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
+        "outputPath": "D:\\Freelancer\\Freelancer\\FinanceManager\\FR.FinanceManager.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/erloon/.config/NuGet/NuGet.Config"
+          "C:\\Users\\macie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -81,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
